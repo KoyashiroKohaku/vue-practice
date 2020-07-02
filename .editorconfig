@@ -1,0 +1,31 @@
+root = true
+
+[*]
+insert_final_newline = true
+charset = utf-8
+trim_trailing_whitespace = true
+
+[*.js]
+end_of_line = lf
+indent_style = space
+indent_size = 2
+
+[*.ts]
+end_of_line = lf
+indent_style = space
+indent_size = 2
+
+[*.vue]
+end_of_line = lf
+indent_style = space
+indent_size = 2
+
+[*.html]
+end_of_line = lf
+indent_style = space
+indent_size = 2
+
+[*.json]
+end_of_line = lf
+indent_style = space
+indent_size = 2
