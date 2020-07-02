@@ -74,15 +74,18 @@ export default Vue.extend({
         return null;
       }
 
+      const leftValueNumber = Number(this.leftValue);
+      const rightValueNumber = Number(this.rightValue);
+
       switch (this.calcType) {
         case CalcType.Addition:
-          return this.leftValue + this.rightValue;
+          return leftValueNumber + rightValueNumber;
         case CalcType.Subtraction:
-          return this.leftValue - this.rightValue;
+          return leftValueNumber - rightValueNumber;
         case CalcType.Multiplication:
-          return this.leftValue * this.rightValue;
+          return leftValueNumber * rightValueNumber;
         case CalcType.Division:
-          return this.leftValue / this.rightValue;
+          return leftValueNumber / rightValueNumber;
         default:
           return null;
       }
