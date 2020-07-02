@@ -1,16 +1,33 @@
 <template>
-  <div class="calc">
-    <input type="text" id="left" v-model.number="leftValue" />
-    <select v-model.number="calcType">
-      <option value="0" selected>+</option>
-      <option value="1">-</option>
-      <option value="2">*</option>
-      <option value="3">/</option>
-    </select>
-    <input type="text" id="right" v-model.number="rightValue" />
-    <span>=</span>
-    <input type="text" id="result" v-model.number="resultValue" readonly />
-  </div>
+  <v-container>
+    <v-col cols="12" sm="6">
+      <v-text-field label="Left Value" single-line v-model.number="leftValue" />
+    </v-col>
+
+    <v-col class="d-flex" cols="12" sm="6">
+      <v-select
+        label="Calc Type"
+        :items="types"
+        v-model.number="calcType"
+      ></v-select>
+    </v-col>
+
+    <v-col cols="12" sm="6">
+      <v-text-field
+        label="Right Value"
+        single-line
+        v-model.number="rightValue"
+      />
+    </v-col>
+
+    <v-col cols="12" sm="6">
+      =
+    </v-col>
+
+    <v-col cols="12" sm="6">
+      <v-text-field label="Result" single-line v-model.number="resultValue" />
+    </v-col>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -27,6 +44,12 @@ export default Vue.extend({
   name: "Calc",
   data() {
     return {
+      types: [
+        { text: "+", value: CalcType.Addition },
+        { text: "-", value: CalcType.Subtraction },
+        { text: "*", value: CalcType.Multiplication },
+        { text: "/", value: CalcType.Division }
+      ],
       leftValue: 0,
       rightValue: 0,
       calcType: CalcType.Addition
